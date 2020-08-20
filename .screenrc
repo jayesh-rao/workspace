@@ -1,0 +1,54 @@
+# skip the startup message
+shell zsh
+ startup_message off
+
+ attrcolor b ".I"
+
+ allpartial off
+ defc1 off
+ defencoding utf8
+ bind b encoding big5 utf8
+ bind u encoding utf8 utf8
+
+
+ # Erase background with current bg color
+ defbce "on"
+defutf8 on
+
+
+ # Display a caption string below, appearing like tabs and
+ # displaying the window number and application name (by default).
+#caption always
+# caption string "%{kw}%-w%{wr}%n %t%{-}%+w"
+ #
+ # j to move down a window, k to move up. Like teh VIM!
+# bind j focus down
+# bind k focus up
+ # Cache 30000 lines for scroll back
+ defscrollback 30000
+
+# hardstatus alwayslastline 
+ # Very nice tabbed colored hardstatus line
+# hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}|%{KY}%101`%{KW}|%D %M %d %Y%{= Kc} %C%A%{-}'
+
+ caption always "%{=u .d} %-w%<%{=ub .B}%n %t%{=u .d}%+w "
+ hardstatus alwaysignore
+ hardstatus alwayslastline "%{= .K} [%l]%<%=%{= .W}@%H %=%{= .y} %Y %M %d(%D) %{= .m} %C %A"
+
+ # Enable 256 color term
+term screen-256color
+ # Tell screen how to set colors. AB = background, AF=foreground
+ termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+ # Enables use of shift-PgUp and shift-PgDn
+ termcapinfo xterm|xterms|xs|rxvt ti@:te@
+
+#
+ # Default screens
+#screen -t VIM
+# screen -t Git
+# screen -t Console
+# screen -t Server
+ #
+ # Select first screen
+# select 0
